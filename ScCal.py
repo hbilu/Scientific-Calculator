@@ -57,6 +57,7 @@ class ScCalculator(QMainWindow):
         for keySymbol, button in self.buttonMap.items():
             if keySymbol not in {"=", "C", "Del", "x\u207F", "π", "x", "e", "+/-", "1/x", "\u02B8√x", "x!"}:
                 button.clicked.connect(partial(self.bClicked, keySymbol))
+        self.buttonMap["\u02B8√x"].clicked.connect(partial(self.bClicked, "√"))
         self.buttonMap["x\u207F"].clicked.connect(partial(self.bClicked, "**"))
         self.buttonMap["π"].clicked.connect(partial(self.bClicked, str(pi)))
         self.buttonMap["e"].clicked.connect(partial(self.bClicked, str(e)))
